@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEngine;
 
 namespace _Project.Scripts.Battle.State
 {
@@ -10,9 +11,9 @@ namespace _Project.Scripts.Battle.State
 
         public override IEnumerator Start()
         {
-            BattleSystem.BattleUIManager.SetBattleText("Starting battle");
-            BattleSystem.BattleUIManager.AttackUI.Enable();
-            yield break;
+            BattleSystem.BattleUIManager.SetBattleText("Battle commences...");
+            yield return new WaitForSeconds(2);
+            BattleSystem.BattleUIManager.SetBattleText("Player turn state");
         }
     }
 }

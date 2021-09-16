@@ -6,9 +6,12 @@ namespace _Project.Scripts.Battle
 {
     public class BattleSystem : BattleStateMachine
     {
-        [SerializeField] private BattleUIManager battleUIManager;
+        public BattleUIManager BattleUIManager { get; private set; }
 
-        public BattleUIManager BattleUIManager => battleUIManager;
+        private void Awake()
+        {
+            BattleUIManager = GetComponent<BattleUIManager>();
+        }
 
         // Player turn state
         // Enemy turn state
@@ -20,7 +23,7 @@ namespace _Project.Scripts.Battle
 
         private void Update()
         {
-            StartCoroutine(BattleState.UpdateState());
+            StartCoroutine(State.UpdateState());
         }
     }
 }

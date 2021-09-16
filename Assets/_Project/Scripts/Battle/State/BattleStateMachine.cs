@@ -4,11 +4,11 @@ namespace _Project.Scripts.Battle.State
 {
     public class BattleStateMachine : MonoBehaviour
     {
-        protected BattleState BattleState;
-        
+        public BattleState State { get; private set; }
+
         public void SetState(BattleState battleState)
         {
-            BattleState = battleState;
+            State = battleState;
             StartCoroutine(battleState.Start());
         }
     }
