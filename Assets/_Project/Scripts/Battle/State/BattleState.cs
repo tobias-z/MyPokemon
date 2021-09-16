@@ -13,7 +13,12 @@ namespace _Project.Scripts.Battle.State
 
         public abstract IEnumerator Start();
 
-        public virtual IEnumerator UpdateState()
+        public virtual IEnumerator Update()
+        {
+            yield break;
+        }
+        
+        public virtual IEnumerator Cleanup()
         {
             yield break;
         }
