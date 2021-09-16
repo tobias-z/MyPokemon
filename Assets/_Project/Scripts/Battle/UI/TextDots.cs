@@ -33,6 +33,7 @@ namespace _Project.Scripts.Battle.UI
         
         private void AppendDots(object sender, EventArgs e)
         {
+            CheckForNewText();
             _dot += ".";
             if (_dot.Equals("...."))
             {
@@ -40,6 +41,12 @@ namespace _Project.Scripts.Battle.UI
                 _ui.SetBattleText(_startText);
             }
             _ui.SetBattleText($"{_startText}{_dot}");
+        }
+
+        private void CheckForNewText()
+        {
+            if (_ui.CurrentText.StartsWith($"{_startText[0]}")) return;
+            _startText = _ui.CurrentText;
         }
     }
 }
