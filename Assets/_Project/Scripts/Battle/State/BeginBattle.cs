@@ -11,9 +11,16 @@ namespace _Project.Scripts.Battle.State
 
         public override IEnumerator Start()
         {
-            BattleSystem.UI.SetBattleText("Battle commences...");
+            BattleSystem.UI.SetBattleText("Battle commences");
+            BattleSystem.UI.TextDots.Enable();
             yield return new WaitForSeconds(2);
             BattleSystem.SetState(new PlayerTurn(BattleSystem));
+        }
+
+        public override IEnumerator Cleanup()
+        {
+            BattleSystem.UI.TextDots.Disable();
+            yield break;
         }
     }
 }
