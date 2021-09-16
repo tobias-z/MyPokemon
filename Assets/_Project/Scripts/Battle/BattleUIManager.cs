@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace _Project.Scripts.Battle
 {
-    public class BattleUIManager : MonoBehaviour
+    public class BattleUIManager : MonoBehaviour, IBattleUIManager
     {
         [SerializeField] private Image textImage;
         [SerializeField] private GameObject infoText;

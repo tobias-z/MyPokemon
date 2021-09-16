@@ -1,16 +1,14 @@
-using System;
 using _Project.Scripts.Battle.State;
-using UnityEngine;
 
 namespace _Project.Scripts.Battle
 {
     public class BattleSystem : BattleStateMachine
     {
-        public BattleUIManager BattleUIManager { get; private set; }
+        public IBattleUIManager BattleUIManager { get; private set; }
 
         private void Awake()
         {
-            BattleUIManager = GetComponent<BattleUIManager>();
+            BattleUIManager = GetComponent<IBattleUIManager>();
         }
 
         // Player turn state

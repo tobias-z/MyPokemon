@@ -20,7 +20,7 @@ namespace _Project.Scripts.Battle.UI
         public void Enable()
         {
             _attackImage.gameObject.SetActive(true);
-            ResizeTextImage();
+            ReduceTextSize();
             MoveImageToTheSide();
         }
 
@@ -31,7 +31,7 @@ namespace _Project.Scripts.Battle.UI
             _textImage.rectTransform.position = _initialImage.position;
         }
 
-        private void ResizeTextImage()
+        private void ReduceTextSize()
         {
             var sizeDelta = _initialImage.sizeDelta;
             sizeDelta = new Vector2(sizeDelta.x - 500, sizeDelta.y);

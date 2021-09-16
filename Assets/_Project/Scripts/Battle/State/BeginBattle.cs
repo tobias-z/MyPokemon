@@ -13,7 +13,7 @@ namespace _Project.Scripts.Battle.State
         {
             BattleSystem.BattleUIManager.SetBattleText("Battle commences...");
             yield return new WaitForSeconds(2);
-            BattleSystem.BattleUIManager.SetBattleText("Player turn state");
+            BattleSystem.SetState(new PlayerTurn(BattleSystem));
         }
     }
 }
