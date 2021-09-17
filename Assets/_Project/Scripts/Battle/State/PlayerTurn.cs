@@ -1,6 +1,5 @@
-using System;
 using System.Collections;
-using _Project.Scripts.Core;
+using System.Threading;
 using UnityEngine;
 
 namespace _Project.Scripts.Battle.State

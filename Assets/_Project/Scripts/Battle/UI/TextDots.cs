@@ -1,6 +1,5 @@
 using System;
 using _Project.Scripts.Core;
-using UnityEngine;
 
 namespace _Project.Scripts.Battle.UI
 {
@@ -23,7 +22,7 @@ namespace _Project.Scripts.Battle.UI
         public void Enable()
         {
             _startText = _ui.CurrentText;
-            _stopRepeat = _eventManager.RepeatEvent(AppendDots, 0, 1);
+            _stopRepeat = _eventManager.RepeatEvent(AppendDots, 1);
         }
 
         public void Disable()

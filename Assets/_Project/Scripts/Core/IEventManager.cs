@@ -8,6 +8,6 @@ namespace _Project.Scripts.Core
     {
         void AddEvent(EventHandler handler);
 
-        StopRepeat RepeatEvent(EventHandler handler, float startTime, float jumpTime);
+        StopRepeat RepeatEvent(EventHandler handler, double jumpTime);
     }
 }

@@ -2136,6 +2136,7 @@ GameObject:
   - component: {fileID: 1945521807}
   - component: {fileID: 1945521812}
   - component: {fileID: 1945521811}
+  - component: {fileID: 1945521813}
   m_Layer: 5
   m_Name: CombatCanvas
   m_TagString: Untagged
@@ -2249,6 +2250,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb3939a46f8946cca222555b9dce68d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1945521813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945521806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd4145b6784a43f18b3724c4632091ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1983099867
