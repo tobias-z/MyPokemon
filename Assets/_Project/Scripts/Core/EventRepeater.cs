@@ -1,23 +1,16 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using System.Timers;
-using _Project.Scripts.Core;
 using UnityEngine;
 
-namespace _Project.Scripts.Battle
+namespace _Project.Scripts.Core
 {
-    public class EventManager : MonoBehaviour, IEventManager
+    public class EventRepeater : MonoBehaviour, IRepeater
     {
         private event EventHandler Events;
-        
-        public void AddEvent(EventHandler handler)
-        {
-            Events += handler;
-        }
 
-        public StopRepeat RepeatEvent(EventHandler handler, double jumpTime)
+        private void AddEvent(EventHandler handler) => Events += handler;
+
+        public StopRepeat Repeat(EventHandler handler, double jumpTime)
         {
             AddEvent(handler);
             var timer = GetTimer(handler, jumpTime);

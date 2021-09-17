@@ -1,20 +1,21 @@
 using System;
 using _Project.Scripts.Core;
+using UnityEngine;
 
 namespace _Project.Scripts.Battle.UI
 {
     public class TextDots : IToggle
     {
-        private readonly IEventManager _eventManager;
+        private readonly IRepeater _repeater;
         private readonly IBattleUIManager _ui;
         
         private string _startText;
         private string _dot;
         private StopRepeat _stopRepeat;
 
-        public TextDots(IEventManager eventManager, IBattleUIManager uiManager)
+        public TextDots(IRepeater repeater, IBattleUIManager uiManager)
         {
-            _eventManager = eventManager;
+            _repeater = repeater;
             _ui = uiManager;
             _dot = "";
         }
@@ -22,7 +23,7 @@ namespace _Project.Scripts.Battle.UI
         public void Enable()
         {
             _startText = _ui.CurrentText;
-            _stopRepeat = _eventManager.RepeatEvent(AppendDots, 1);
+            _stopRepeat = _repeater.Repeat(AppendDots, 1);
         }
 
         public void Disable()

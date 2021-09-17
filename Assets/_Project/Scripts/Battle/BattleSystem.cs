@@ -8,12 +8,12 @@ namespace _Project.Scripts.Battle
     public class BattleSystem : BattleStateMachine
     {
         public IBattleUIManager UI { get; private set; }
-        public IEventManager EventManager { get; private set; }
+        public IRepeater Repeater { get; private set; }
 
         private void Awake()
         {
             UI = GetComponent<IBattleUIManager>();
-            EventManager = GetComponent<IEventManager>();
+            Repeater = GetComponent<IRepeater>();
         }
         
         // Player turn state

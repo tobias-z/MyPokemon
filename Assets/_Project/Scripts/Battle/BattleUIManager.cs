@@ -30,7 +30,7 @@ namespace _Project.Scripts.Battle
             _textMesh = infoText.GetComponent<TextMeshProUGUI>();
             CurrentText = _textMesh.text;
             AttackUI = new AttackUI(textImage, attackImage);
-            TextDots = new TextDots(GetComponent<IEventManager>(), this);
+            TextDots = new TextDots(GetComponent<IRepeater>(), this);
         }
         
         public void SetBattleText(string message) => CurrentText = message;
