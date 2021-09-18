@@ -30,7 +30,7 @@ namespace Battle
         {
             _textMesh = infoText.GetComponent<TextMeshProUGUI>();
             CurrentText = _textMesh.text;
-            AttackUI = new AttackUI(textImage, attackImage);
+            AttackUI = new AttackUI(attackImage);
             TextDots = new TextDots(GetComponent<IRepeater>(), this);
             MessageQueue = GetComponent<IMessageQueue>();
         }

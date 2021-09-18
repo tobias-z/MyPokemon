@@ -7,17 +7,20 @@ namespace Battle.UI
 {
     public interface IMessageQueue
     {
-        void SetMessageQueue(IEnumerable<string> messages, BattleState next);
+        void StartMessageQueue(IEnumerable<string> messages, BattleState next);
     }
 
     public class MessageQueue : MonoBehaviour, IMessageQueue
     {
         [SerializeField] private BattleSystem battleSystem;
+        
+        [Header("Settings")]
+        [SerializeField] private KeyCode key = KeyCode.Space;
 
         private Queue<string> _messages;
         private BattleState _next;
 
-        public void SetMessageQueue(IEnumerable<string> messages, BattleState next)
+        public void StartMessageQueue(IEnumerable<string> messages, BattleState next)
         {
             _messages = new Queue<string>();
             _next = next;
@@ -35,7 +38,7 @@ namespace Battle.UI
                 battleSystem.SetState(_next);
             }
 
-            if (!Input.GetKeyDown(KeyCode.Space)) return;
+            if (!Input.GetKeyDown(key)) return;
             if (_messages != null)
                 battleSystem.UI.SetBattleText(_messages.Dequeue());
         }

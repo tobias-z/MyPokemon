@@ -19,9 +19,9 @@ namespace Battle.State
 
         public override IEnumerator Start()
         {
-            BattleSystem.UI.SetBattleText("...");
+            BattleSystem.UI.SetBattleText(".");
             BattleSystem.UI.TextDots.Enable();
-            BattleSystem.UI.MessageQueue.SetMessageQueue(_messages, new PlayerTurn(BattleSystem));
+            BattleSystem.UI.MessageQueue.StartMessageQueue(_messages, new PlayerTurn(BattleSystem));
             yield break;
         }
 

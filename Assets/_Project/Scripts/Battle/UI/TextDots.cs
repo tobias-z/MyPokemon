@@ -44,7 +44,9 @@ namespace Battle.UI
 
         private void CheckForNewText()
         {
-            if (_ui.CurrentText.StartsWith($"{_startText[0]}")) return;
+            // not very reliable 🙂
+            var isSameText = _ui.CurrentText.StartsWith($"{_startText[0]}");
+            if (isSameText) return;
             _startText = _ui.CurrentText;
         }
     }
