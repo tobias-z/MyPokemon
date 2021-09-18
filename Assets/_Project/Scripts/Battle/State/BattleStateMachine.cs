@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace _Project.Scripts.Battle.State
+namespace Battle.State
 {
     public class BattleStateMachine : MonoBehaviour
     {

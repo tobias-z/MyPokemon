@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace _Project.Scripts.Menus.StartMenu
+namespace Menus.StartMenu
 {
     public class MenuSystem : MenuStateMachine
     {

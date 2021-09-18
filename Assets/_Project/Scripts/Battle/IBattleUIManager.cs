@@ -1,6 +1,6 @@
-using _Project.Scripts.Core;
+using Core;
 
-namespace _Project.Scripts.Battle
+namespace Battle
 {
     public interface IBattleUIManager
     {

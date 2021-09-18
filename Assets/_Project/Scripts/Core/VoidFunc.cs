@@ -1,4 +1,4 @@
-namespace _Project.Scripts.Core
+namespace Core
 {
     public delegate void VoidFunc();
 }

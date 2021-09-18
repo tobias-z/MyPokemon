@@ -2,18 +2,18 @@ using System;
 using System.Timers;
 using UnityEngine;
 
-namespace _Project.Scripts.Core
+namespace Core
 {
     public class EventRepeater : MonoBehaviour, IRepeater
     {
-        private event EventHandler Events;
+        private event Action Action;
 
-        private void AddEvent(EventHandler handler) => Events += handler;
+        private void AddEvent(Action action) => Action += action;
 
-        public StopRepeat Repeat(EventHandler handler, double jumpTime)
+        public StopRepeat Repeat(Action action, double jumpTime)
         {
-            AddEvent(handler);
-            var timer = GetTimer(handler, jumpTime);
+            AddEvent(action);
+            var timer = GetTimer(action, jumpTime);
             timer.Start();
             
             return () =>
@@ -24,10 +24,10 @@ namespace _Project.Scripts.Core
             };
         }
 
-        private Timer GetTimer(EventHandler handler, double jumpTime)
+        private Timer GetTimer(Action action, double jumpTime)
         {
             var timer = new Timer(jumpTime * 1000);
-            timer.Elapsed += (sender, args) => AddEvent(handler);
+            timer.Elapsed += (sender, args) => AddEvent(action);
             timer.Enabled = true;
             timer.AutoReset = true;
             return timer;
@@ -35,8 +35,8 @@ namespace _Project.Scripts.Core
 
         private void Update()
         {
-            Events?.Invoke(this, EventArgs.Empty);
-            Events -= Events;
+            Action?.Invoke();
+            Action -= Action;
         }
     }
 }

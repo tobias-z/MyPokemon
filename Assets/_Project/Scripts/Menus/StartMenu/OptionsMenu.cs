@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace _Project.Scripts.Menus.StartMenu
+namespace Menus.StartMenu
 {
     public class OptionsMenu : MenuState
     {

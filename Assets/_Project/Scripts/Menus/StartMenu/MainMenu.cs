@@ -4,7 +4,7 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace _Project.Scripts.Menus.StartMenu
+namespace Menus.StartMenu
 {
     public class MainMenu : MenuState
     {

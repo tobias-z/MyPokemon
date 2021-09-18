@@ -1,8 +1,7 @@
 using System;
-using _Project.Scripts.Core;
-using UnityEngine;
+using Core;
 
-namespace _Project.Scripts.Battle.UI
+namespace Battle.UI
 {
     public class TextDots : IToggle
     {
@@ -31,7 +30,7 @@ namespace _Project.Scripts.Battle.UI
             _stopRepeat?.Invoke();
         }
         
-        private void AppendDots(object sender, EventArgs e)
+        private void AppendDots()
         {
             CheckForNewText();
             _dot += ".";

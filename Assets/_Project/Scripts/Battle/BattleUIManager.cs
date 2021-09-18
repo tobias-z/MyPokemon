@@ -1,11 +1,10 @@
-using System;
-using _Project.Scripts.Battle.UI;
-using _Project.Scripts.Core;
+using Battle.UI;
+using Core;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Project.Scripts.Battle
+namespace Battle
 {
     public class BattleUIManager : MonoBehaviour, IBattleUIManager
     {

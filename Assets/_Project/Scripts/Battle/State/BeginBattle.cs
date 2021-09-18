@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace _Project.Scripts.Battle.State
+namespace Battle.State
 {
     public class BeginBattle : BattleState
     {

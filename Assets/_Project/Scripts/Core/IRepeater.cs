@@ -1,11 +1,11 @@
 using System;
 
-namespace _Project.Scripts.Core
+namespace Core
 {
     public delegate void StopRepeat();
     
     public interface IRepeater
     {
-        StopRepeat Repeat(EventHandler handler, double jumpTime);
+        StopRepeat Repeat(Action action, double jumpTime);
     }
 }

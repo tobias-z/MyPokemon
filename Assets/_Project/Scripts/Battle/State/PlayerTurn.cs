@@ -1,8 +1,6 @@
 using System.Collections;
-using System.Threading;
-using UnityEngine;
 
-namespace _Project.Scripts.Battle.State
+namespace Battle.State
 {
     public class PlayerTurn : BattleState
     {

@@ -1,6 +1,6 @@
 using System.Collections;
 
-namespace _Project.Scripts.Battle.State
+namespace Battle.State
 {
     public abstract class BattleState
     {

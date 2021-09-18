@@ -1,15 +1,15 @@
-using _Project.Scripts.Core;
+using Core;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace _Project.Scripts.Battle.UI
+namespace Battle.UI
 {
     public class AttackUI : IToggle
     {
         private readonly Image _textImage;
         private readonly RectTransform _initialImage;
         private readonly Image _attackImage;
-
+        
         public AttackUI(Image textImage, Image attackImage)
         {
             _textImage = textImage;
