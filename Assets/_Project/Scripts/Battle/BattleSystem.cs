@@ -1,4 +1,6 @@
 using Battle.State;
+using Codice.Client.BaseCommands.BranchExplorer.ExplorerData;
+using Core;
 
 namespace Battle
 {

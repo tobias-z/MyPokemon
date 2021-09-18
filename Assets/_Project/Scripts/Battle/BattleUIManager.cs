@@ -16,6 +16,8 @@ namespace Battle
         
         public IToggle AttackUI { get; private set; }
 
+        public IMessageQueue MessageQueue { get; private set; }
+
         public string CurrentText
         {
             get => _textMesh.text;
@@ -30,6 +32,7 @@ namespace Battle
             CurrentText = _textMesh.text;
             AttackUI = new AttackUI(textImage, attackImage);
             TextDots = new TextDots(GetComponent<IRepeater>(), this);
+            MessageQueue = GetComponent<IMessageQueue>();
         }
         
         public void SetBattleText(string message) => CurrentText = message;

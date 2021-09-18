@@ -24,6 +24,7 @@ namespace Battle
 
         private IEnumerator OnFightClick()
         {
+            battleSystem.UI.AttackUI.Disable();
             battleSystem.UI.SetBattleText($"'NAME' uses 'ABILITY'");
             yield return new WaitForSeconds(2);
             battleSystem.Player.Attack(battleSystem.Enemy);

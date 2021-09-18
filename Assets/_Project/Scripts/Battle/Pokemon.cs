@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -29,6 +28,7 @@ namespace Battle
         public void Die()
         {
             print("I have died");
+            slider.value = 100;
         }
 
         private void SetHealthText(float amount)
@@ -38,7 +38,7 @@ namespace Battle
 
         private void Update()
         {
-            if (slider.value < 0)
+            if (slider.value <= 0)
             {
                 Die();
             }

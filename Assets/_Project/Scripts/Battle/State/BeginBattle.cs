@@ -1,20 +1,28 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using Battle.UI;
 using UnityEngine;
 
 namespace Battle.State
 {
     public class BeginBattle : BattleState
     {
+        private readonly string[] _messages = {
+            "A wild 'POKEMON_NAME' appeared",
+            "Battle commences",
+        };
+        
         public BeginBattle(BattleSystem battleSystem) : base(battleSystem)
         {
         }
 
         public override IEnumerator Start()
         {
-            BattleSystem.UI.SetBattleText("Battle commences");
+            BattleSystem.UI.SetBattleText("...");
             BattleSystem.UI.TextDots.Enable();
-            yield return new WaitForSeconds(2);
-            BattleSystem.SetState(new PlayerTurn(BattleSystem));
+            BattleSystem.UI.MessageQueue.SetMessageQueue(_messages, new PlayerTurn(BattleSystem));
+            yield break;
         }
 
         public override IEnumerator Cleanup()
