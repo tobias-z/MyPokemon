@@ -19,6 +19,7 @@ namespace Battle.State
         public override IEnumerator Cleanup()
         {
             BattleSystem.UI.TextDots.Disable();
+            BattleSystem.UI.AttackUI.Disable();
             yield break;
         }
     }

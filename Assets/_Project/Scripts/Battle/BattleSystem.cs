@@ -2,7 +2,6 @@ using Battle.State;
 
 namespace Battle
 {
-    
     public class BattleSystem : BattleStateMachine
     {
         public IBattleUIManager UI { get; private set; }
@@ -15,7 +14,6 @@ namespace Battle
             var pokemons = GetComponents<IPokemon>();
             Player = pokemons[0];
             Enemy = pokemons[1];
-            Player.Attack(Enemy);
         }
 
         private void Start()
