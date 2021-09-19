@@ -42,9 +42,7 @@ namespace Battle.Pokemon
 
         public bool IsDead() => _components.Slider.value <= 0;
 
-        private void SetHealthText(float amount)
-        {
+        private void SetHealthText(float amount) =>
             _components.Health.text = $"{amount}/{_components.Health.text.Split('/')[1]}";
-        }
     }
 }

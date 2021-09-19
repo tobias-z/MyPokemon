@@ -1,8 +1,10 @@
+using Core;
+
 namespace Battle.Pokemon
 {
     public interface IPokemonManager
     {
-        void Init(BattleSystem battleSystem);
+        void Init(BattleSystem battleSystem, Player player);
         
         IPokemonAction Action { get; } 
     }

@@ -1,9 +1,7 @@
-using System.Linq;
+using System.Collections.Generic;
 using Battle.Pokemon;
 using Battle.State;
-using Codice.Client.BaseCommands.BranchExplorer.ExplorerData;
 using Core;
-using Unity.Plastic.Newtonsoft.Json.Bson;
 
 namespace Battle
 {
@@ -16,18 +14,22 @@ namespace Battle
         private void Awake()
         {
             UI = GetComponent<IBattleUIManager>();
-            var managers = GetPokemonManagers();
+            var managers = GetComponents<IPokemonManager>();
             Player = managers[0];
+            Player.Init(this, GetComponent<Player>());
             Enemy = managers[1];
+            Enemy.Init(this, GetEnemyPlayer());
         }
 
-        private IPokemonManager[] GetPokemonManagers()
+        private Player GetEnemyPlayer()
         {
-            return GetComponents<IPokemonManager>().Select(manager =>
+            var enemyPlayer = gameObject.AddComponent<Player>();
+            enemyPlayer.Name = "Bob";
+            enemyPlayer.Pokemons = new List<IPokemon>()
             {
-                manager.Init(this);
-                return manager;
-            }).ToArray();
+                new Core.Pokemon("Charmander", 15, 250)
+            };
+            return enemyPlayer;
         }
 
         private void Start()

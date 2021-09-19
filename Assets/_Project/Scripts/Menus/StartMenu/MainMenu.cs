@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -42,7 +43,9 @@ namespace Menus.StartMenu
                 switch (button.name)
                 {
                     case "PlayButton":
-                        SceneManager.LoadScene("GameScene");
+                        MenuSystem.CharacterMenu.SetActive(true);
+                        MenuSystem.MainMenu.SetActive(false);
+                        MenuSystem.SetState(new CharacterMenu(MenuSystem));
                         break;
                     case "QuitButton":
                         Application.Quit();
