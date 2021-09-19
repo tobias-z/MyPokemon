@@ -8,7 +8,6 @@ namespace Battle
 {
     public class BattleUIManager : MonoBehaviour, IBattleUIManager
     {
-        [SerializeField] private Image textImage;
         [SerializeField] private GameObject infoText;
         [SerializeField] private Image attackImage;
         

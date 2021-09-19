@@ -3,9 +3,9 @@ using Battle.State;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Battle
+namespace Battle.Buttons
 {
-    public class FightButtons : MonoBehaviour
+    public class FightButtonManager : MonoBehaviour
     {
         [SerializeField] private BattleSystem battleSystem;
         [SerializeField] private Button fightButton;
@@ -19,7 +19,7 @@ namespace Battle
 
         private void OnRunClick()
         {
-            battleSystem.Player.Run();
+            battleSystem.Player.Action.Run();
         }
 
         private IEnumerator OnFightClick()
@@ -27,7 +27,7 @@ namespace Battle
             battleSystem.UI.AttackUI.Disable();
             battleSystem.UI.SetBattleText($"'NAME' uses 'ABILITY'");
             yield return new WaitForSeconds(2);
-            battleSystem.Player.Attack(battleSystem.Enemy);
+            battleSystem.Player.Action.Attack(battleSystem.Enemy);
             battleSystem.SetState(new EnemyTurn(battleSystem));
         }
     }

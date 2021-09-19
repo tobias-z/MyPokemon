@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using System.Text;
 using Core;
 
 namespace Battle.UI
@@ -44,8 +46,9 @@ namespace Battle.UI
 
         private void CheckForNewText()
         {
-            // not very reliable 🙂
-            var isSameText = _ui.CurrentText.StartsWith($"{_startText[0]}");
+            var current = _ui.CurrentText + '.';
+            var start = _startText + '.'; 
+            var isSameText = current.Split('.')[0].Equals(start.Split('.')[0]);
             if (isSameText) return;
             _startText = _ui.CurrentText;
         }

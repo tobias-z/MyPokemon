@@ -1,21 +1,33 @@
+using System.Linq;
+using Battle.Pokemon;
 using Battle.State;
 using Codice.Client.BaseCommands.BranchExplorer.ExplorerData;
 using Core;
+using Unity.Plastic.Newtonsoft.Json.Bson;
 
 namespace Battle
 {
     public class BattleSystem : BattleStateMachine
     {
         public IBattleUIManager UI { get; private set; }
-        public IPokemon Player { get; private set; }
-        public IPokemon Enemy { get; private set; }
+        public IPokemonManager Player { get; private set; }
+        public IPokemonManager Enemy { get; private set; }
 
         private void Awake()
         {
             UI = GetComponent<IBattleUIManager>();
-            var pokemons = GetComponents<IPokemon>();
-            Player = pokemons[0];
-            Enemy = pokemons[1];
+            var managers = GetPokemonManagers();
+            Player = managers[0];
+            Enemy = managers[1];
+        }
+
+        private IPokemonManager[] GetPokemonManagers()
+        {
+            return GetComponents<IPokemonManager>().Select(manager =>
+            {
+                manager.Init(this);
+                return manager;
+            }).ToArray();
         }
 
         private void Start()
@@ -27,6 +39,5 @@ namespace Battle
         {
             StartCoroutine(State.Update());
         }
-
     }
 }
