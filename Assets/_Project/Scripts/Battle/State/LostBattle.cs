@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEngine;
 
 namespace Battle.State
 {
@@ -10,7 +11,13 @@ namespace Battle.State
 
         public override IEnumerator Start()
         {
-            BattleSystem.UI.SetBattleText("You lost :(");
+            Debug.Log("Died");
+            BattleSystem.Player.ActivateNextPokemon();
+            if (BattleSystem.Player.ActivePokemon == null)
+                BattleSystem.UI.SetBattleText("You lost :(");
+            else 
+                BattleSystem.SetState(new PlayerTurn(BattleSystem));
+            
             yield break;
         }
     }

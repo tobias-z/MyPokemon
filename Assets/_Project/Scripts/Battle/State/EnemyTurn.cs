@@ -19,7 +19,7 @@ namespace Battle.State
 
         private IEnumerator AttackPlayer()
         {
-            BattleSystem.UI.SetBattleText($"'ENEMY_POKEMON' uses 'ABILITY_NAME'!");
+            BattleSystem.UI.SetBattleText($"{BattleSystem.Enemy.ActivePokemon.Name} uses 'ABILITY_NAME'!");
             yield return new WaitForSeconds(1);
             BattleSystem.Enemy.Action.Attack(BattleSystem.Player);
             BattleSystem.StartCoroutine(SetPlayerTurnInOneSecond());

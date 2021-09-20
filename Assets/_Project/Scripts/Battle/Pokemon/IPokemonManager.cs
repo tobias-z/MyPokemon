@@ -6,6 +6,12 @@ namespace Battle.Pokemon
     {
         void Init(BattleSystem battleSystem, Player player);
         
-        IPokemonAction Action { get; } 
+        IPokemonAction Action { get; }
+        
+        IPokemonUIManager UI { get; }
+        IPokemon ActivePokemon { get; }
+
+        void ActivateNextPokemon();
+        
     }
 }

@@ -11,7 +11,7 @@ namespace Battle.State
         public override IEnumerator Start()
         {
             BattleSystem.UI.AttackUI.Enable();
-            BattleSystem.UI.SetBattleText($"What should 'POKEMON_NAME' do?");
+            BattleSystem.UI.SetBattleText($"What should {BattleSystem.Player.ActivePokemon.Name} do?");
             BattleSystem.UI.TextDots.Enable();
             yield break;
         }

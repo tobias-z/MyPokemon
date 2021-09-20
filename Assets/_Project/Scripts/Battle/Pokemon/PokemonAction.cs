@@ -29,7 +29,8 @@ namespace Battle.Pokemon
         public void TakeDamage(float amount)
         {
             _components.Slider.value -= amount;
-            SetHealthText(_components.Slider.value);
+            _pokemonManager.ActivePokemon.Health -= amount;
+            _pokemonManager.UI.SetHealth(_pokemonManager.ActivePokemon.Health);
         }
 
         public void Die()
@@ -41,8 +42,5 @@ namespace Battle.Pokemon
         }
 
         public bool IsDead() => _components.Slider.value <= 0;
-
-        private void SetHealthText(float amount) =>
-            _components.Health.text = $"{amount}/{_components.Health.text.Split('/')[1]}";
     }
 }

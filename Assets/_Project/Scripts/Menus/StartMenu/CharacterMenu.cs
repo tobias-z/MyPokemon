@@ -10,11 +10,11 @@ namespace Menus.StartMenu
     public class CharacterMenu : MenuState
     {
         private readonly Button _startGameButton;
-        private readonly TextMeshProUGUI _nameInput;
+        private readonly TMP_InputField _nameInput;
         
         public CharacterMenu(MenuSystem menuSystem) : base(menuSystem)
         {
-            _nameInput = GameObject.FindGameObjectWithTag("InputField").GetComponent<TextMeshProUGUI>();
+            _nameInput = GameObject.FindGameObjectWithTag("InputField").GetComponent<TMP_InputField>();
             _startGameButton = MenuSystem.CharacterMenu.GetComponentInChildren<Button>();
         }
 
@@ -26,7 +26,7 @@ namespace Menus.StartMenu
 
         private void OnStartClick()
         {
-            if (_nameInput.text.Equals("")) return;
+            if (string.IsNullOrEmpty(_nameInput.text)) return;
             CreatePlayer();
             ActiveBattleScreen();
         }

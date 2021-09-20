@@ -25,7 +25,7 @@ namespace Battle.Buttons
         private IEnumerator OnFightClick()
         {
             battleSystem.UI.AttackUI.Disable();
-            battleSystem.UI.SetBattleText($"'NAME' uses 'ABILITY'");
+            battleSystem.UI.SetBattleText($"{battleSystem.Player.ActivePokemon.Name} uses 'ABILITY'");
             yield return new WaitForSeconds(2);
             battleSystem.Player.Action.Attack(battleSystem.Enemy);
             battleSystem.SetState(new EnemyTurn(battleSystem));

@@ -8,10 +8,6 @@ namespace Battle.State
 {
     public class BeginBattle : BattleState
     {
-        private readonly string[] _messages = {
-            "A wild 'POKEMON_NAME' appeared",
-            "Battle commences",
-        };
         
         public BeginBattle(BattleSystem battleSystem) : base(battleSystem)
         {
@@ -21,7 +17,11 @@ namespace Battle.State
         {
             BattleSystem.UI.SetBattleText(".");
             BattleSystem.UI.TextDots.Enable();
-            BattleSystem.UI.MessageQueue.StartMessageQueue(_messages, new PlayerTurn(BattleSystem));
+            var messages = new[] {
+                $"A wild {BattleSystem.Enemy.ActivePokemon.Name} appeared",
+                "Battle commences",
+            };
+            BattleSystem.UI.MessageQueue.StartMessageQueue(messages, new PlayerTurn(BattleSystem));
             yield break;
         }
 
