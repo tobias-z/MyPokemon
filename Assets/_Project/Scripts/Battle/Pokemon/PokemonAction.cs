@@ -40,7 +40,5 @@ namespace Battle.Pokemon
             if (Equals(_battleSystem.Enemy.Action))
                 _battleSystem.SetState(new WonBattle(_battleSystem));
         }
-
-        public bool IsDead() => _components.Slider.value <= 0;
     }
 }

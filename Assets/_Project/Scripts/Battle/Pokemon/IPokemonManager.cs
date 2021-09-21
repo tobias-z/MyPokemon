@@ -9,9 +9,7 @@ namespace Battle.Pokemon
         IPokemonAction Action { get; }
         
         IPokemonUIManager UI { get; }
+        Player Player { get; }
         IPokemon ActivePokemon { get; }
-
-        void ActivateNextPokemon();
-        
     }
 }

@@ -11,14 +11,8 @@ namespace Battle.State
 
         public override IEnumerator Start()
         {
-            if (BattleSystem.Enemy.Action.IsDead())
-                BattleSystem.Enemy.Action.Die();
-            else
-                yield return AttackPlayer();
-        }
+            if (BattleSystem.GameOver()) yield break;
 
-        private IEnumerator AttackPlayer()
-        {
             BattleSystem.UI.SetBattleText($"{BattleSystem.Enemy.ActivePokemon.Name} uses 'ABILITY_NAME'!");
             yield return new WaitForSeconds(1);
             BattleSystem.Enemy.Action.Attack(BattleSystem.Player);
@@ -28,6 +22,8 @@ namespace Battle.State
         private IEnumerator SetPlayerTurnInOneSecond()
         {
             yield return new WaitForSeconds(1);
+
+            if (BattleSystem.GameOver()) yield break;
             BattleSystem.SetState(new PlayerTurn(BattleSystem));
         }
     }

@@ -17,23 +17,36 @@ namespace Battle.Pokemon
 
         public IPokemon ActivePokemon { get; private set; }
 
-        public PokemonManager()
-        {
-            UI = new PokemonUIManager(components);
-        }
-
         public void Init(BattleSystem battleSystem, Player player)
         {
             UI = new PokemonUIManager(components);
             Player = player;
             ActivateNextPokemon();
+            TogglePokeballs();
             Action = new PokemonAction(components, battleSystem, this);
         }
 
-        public void ActivateNextPokemon()
+        private void TogglePokeballs()
         {
-            ActivePokemon = Player.Pokemons.Find(pokemon => pokemon.Health > 0);
-            if (ActivePokemon == null)
+            for (var i = 0; i < components.Pokeballs.Length; i++)
+            {
+                var hasPokemon = Player.Pokemons.Count > i;
+                if (!hasPokemon) return;
+
+                var isAlive = Player.Pokemons[i].IsAlive();
+                var pokeball = components.Pokeballs[i];
+                if (isAlive)
+                    pokeball.Enable();
+                else
+                    pokeball.Disable();
+            }
+        }
+
+        private void ActivateNextPokemon()
+        {
+            ActivePokemon = Player.Pokemons.Find(pokemon => pokemon.IsAlive());
+            var noMorePokemons = ActivePokemon == null;
+            if (noMorePokemons)
             {
                 Action.Die();
                 return;
@@ -48,10 +61,10 @@ namespace Battle.Pokemon
 
         private void Update()
         {
-            if (Action.IsDead())
-            {
-                ActivateNextPokemon();
-            }
+            if (ActivePokemon == null) return;
+            if (ActivePokemon.IsAlive()) return;
+            ActivateNextPokemon();
+            TogglePokeballs();
         }
     }
 }

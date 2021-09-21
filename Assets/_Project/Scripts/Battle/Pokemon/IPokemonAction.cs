@@ -8,7 +8,5 @@ namespace Battle.Pokemon
         void TakeDamage(float amount);
 
         void Die();
-
-        bool IsDead();
     }
 }

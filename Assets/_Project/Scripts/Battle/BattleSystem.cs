@@ -10,6 +10,9 @@ namespace Battle
         public IBattleUIManager UI { get; private set; }
         public IPokemonManager Player { get; private set; }
         public IPokemonManager Enemy { get; private set; }
+        
+        public bool GameOver() =>
+            Player.ActivePokemon == null || Enemy.ActivePokemon == null;
 
         private void Awake()
         {
