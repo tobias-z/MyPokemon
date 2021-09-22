@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Battle.State
 {
@@ -13,9 +15,10 @@ namespace Battle.State
         {
             if (BattleSystem.GameOver()) yield break;
 
-            BattleSystem.UI.SetBattleText($"{BattleSystem.Enemy.ActivePokemon.Name} uses 'ABILITY_NAME'!");
+            var ability = BattleSystem.Enemy.ActivePokemon.Abilities[Random.Range(0, 4)];
+            BattleSystem.UI.SetBattleText($"{BattleSystem.Enemy.ActivePokemon.Name} uses {ability.Name}!");
             yield return new WaitForSeconds(1);
-            BattleSystem.Enemy.Action.Attack(BattleSystem.Player);
+            BattleSystem.Enemy.Action.Attack(BattleSystem.Player, ability);
             BattleSystem.StartCoroutine(SetPlayerTurnInOneSecond());
         }
 

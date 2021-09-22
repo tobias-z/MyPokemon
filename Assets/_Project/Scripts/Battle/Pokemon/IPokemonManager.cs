@@ -1,4 +1,5 @@
 using Core;
+using Core.Pokemon;
 
 namespace Battle.Pokemon
 {

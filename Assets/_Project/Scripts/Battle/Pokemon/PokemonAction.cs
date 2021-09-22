@@ -1,4 +1,5 @@
 using Battle.State;
+using Core.Pokemon;
 using UnityEngine;
 
 namespace Battle.Pokemon
@@ -16,9 +17,9 @@ namespace Battle.Pokemon
             _pokemonManager = pokemonManager;
         }
 
-        public void Attack(IPokemonManager pokemonManager)
+        public void Attack(IPokemonManager pokemonManager, Ability ability)
         {
-            pokemonManager.Action.TakeDamage(Random.Range(10, 30));
+            pokemonManager.Action.TakeDamage(ability.BaseDmg * pokemonManager.ActivePokemon.Level / 2);
         }
 
         public void Run()

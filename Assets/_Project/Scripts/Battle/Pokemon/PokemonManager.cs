@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Core;
+using Core.Pokemon;
 using UnityEngine;
 
 namespace Battle.Pokemon

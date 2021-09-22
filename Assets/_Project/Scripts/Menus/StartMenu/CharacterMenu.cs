@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Core;
 using Core.Factories;
+using Core.Pokemon;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

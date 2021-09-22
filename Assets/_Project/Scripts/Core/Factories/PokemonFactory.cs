@@ -1,11 +1,12 @@
 using System.Collections.Generic;
+using Core.Pokemon;
 
 namespace Core.Factories
 {
     public static class PokemonFactory
     {
-        private static readonly Dictionary<AvailablePokemon, List<Ability>> Abilities =
-            new Dictionary<AvailablePokemon, List<Ability>>()
+        private static readonly Dictionary<AvailablePokemon, List<Ability>> PokemonAbilities =
+            new Dictionary<AvailablePokemon, List<Ability>>
             {
                 {
                     AvailablePokemon.Charmander, new List<Ability>
@@ -38,8 +39,8 @@ namespace Core.Factories
 
         public static IPokemon Create(AvailablePokemon availablePokemon, int level)
         {
-            IPokemon pokemon = new Pokemon(availablePokemon.ToString(), level);
-            pokemon.Abilities = Abilities[availablePokemon];
+            IPokemon pokemon = new Pokemon.Pokemon(availablePokemon.ToString(), level);
+            pokemon.Abilities = PokemonAbilities[availablePokemon];
             return pokemon;
         }
     }

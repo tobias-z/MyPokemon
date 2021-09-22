@@ -4,6 +4,7 @@ using Battle.Pokemon;
 using Battle.State;
 using Core;
 using Core.Factories;
+using Core.Pokemon;
 
 namespace Battle
 {
@@ -30,7 +31,7 @@ namespace Battle
         {
             var enemyPlayer = gameObject.AddComponent<Player>();
             enemyPlayer.Name = "Bob";
-            enemyPlayer.Pokemons = new List<IPokemon>()
+            enemyPlayer.Pokemons = new List<IPokemon>
             {
                 PokemonFactory.Create(AvailablePokemon.Bob, 1),
                 PokemonFactory.Create(AvailablePokemon.Charmander, 15)

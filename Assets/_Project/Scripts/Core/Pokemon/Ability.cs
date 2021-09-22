@@ -1,4 +1,4 @@
-namespace Core
+namespace Core.Pokemon
 {
     public class Ability
     {

@@ -1,7 +1,6 @@
 using System.Collections.Generic;
-using UnityEngine.UIElements;
 
-namespace Core
+namespace Core.Pokemon
 {
     public interface IPokemon
     {
@@ -33,7 +32,7 @@ namespace Core
     {
         public static float GetHealth(int level)
         {
-            return level * 10;
+            return level * 11;
         }
     }
 }
