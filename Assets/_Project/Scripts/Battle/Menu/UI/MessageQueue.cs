@@ -3,7 +3,7 @@ using System.Linq;
 using Battle.State;
 using UnityEngine;
 
-namespace Battle.UI
+namespace Battle.Menu.UI
 {
     public interface IMessageQueue
     {

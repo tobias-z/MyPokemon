@@ -1,7 +1,7 @@
 using Core;
 using UnityEngine.UI;
 
-namespace Battle.UI
+namespace Battle.Menu.UI
 {
     public class AttackUI : IToggle
     {

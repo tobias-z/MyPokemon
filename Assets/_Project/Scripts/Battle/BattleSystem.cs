@@ -1,13 +1,15 @@
 using System.Collections.Generic;
+using Battle.Menu;
 using Battle.Pokemon;
 using Battle.State;
 using Core;
+using Core.Factories;
 
 namespace Battle
 {
     public class BattleSystem : BattleStateMachine
     {
-        public IBattleUIManager UI { get; private set; }
+        public IMenuUIManager UI { get; private set; }
         public IPokemonManager Player { get; private set; }
         public IPokemonManager Enemy { get; private set; }
         
@@ -16,7 +18,7 @@ namespace Battle
 
         private void Awake()
         {
-            UI = GetComponent<IBattleUIManager>();
+            UI = GetComponent<IMenuUIManager>();
             var managers = GetComponents<IPokemonManager>();
             Player = managers[0];
             Player.Init(this, GetComponent<Player>());
@@ -30,7 +32,8 @@ namespace Battle
             enemyPlayer.Name = "Bob";
             enemyPlayer.Pokemons = new List<IPokemon>()
             {
-                new Core.Pokemon("Charmander", 15, 250)
+                PokemonFactory.Create(AvailablePokemon.Bob, 1),
+                PokemonFactory.Create(AvailablePokemon.Charmander, 15)
             };
             return enemyPlayer;
         }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Core;
+using Core.Factories;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -35,8 +36,8 @@ namespace Menus.StartMenu
         {
             var pokemons = new List<IPokemon>()
             {
-                new Pokemon("Pikachu", 1, 50),
-                new Pokemon("Bob", 10, 200)
+                PokemonFactory.Create(AvailablePokemon.Pikachu, 1),
+                PokemonFactory.Create(AvailablePokemon.Bob, 10),
             };
             var player = MenuSystem.BattleScreen.AddComponent<Player>();
             player.Name = _nameInput.text;

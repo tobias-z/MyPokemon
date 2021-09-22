@@ -1,20 +1,18 @@
-using Battle.UI;
+using Battle.Menu.UI;
 using Core;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Battle
+namespace Battle.Menu
 {
-    public class BattleUIManager : MonoBehaviour, IBattleUIManager
+    public class MenuUIManager : MonoBehaviour, IMenuUIManager
     {
         [SerializeField] private GameObject infoText;
         [SerializeField] private Image attackImage;
         
         public IToggle TextDots { get; private set; }
-        
         public IToggle AttackUI { get; private set; }
-
         public IMessageQueue MessageQueue { get; private set; }
 
         public string CurrentText

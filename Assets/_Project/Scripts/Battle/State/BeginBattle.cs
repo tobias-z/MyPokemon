@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Battle.UI;
 using UnityEngine;
 
 namespace Battle.State

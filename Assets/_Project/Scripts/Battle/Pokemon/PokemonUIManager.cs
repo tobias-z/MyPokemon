@@ -9,7 +9,7 @@ namespace Battle.Pokemon
 
     public class PokemonUIManager : IPokemonUIManager
     {
-        private PokemonComponents _components;
+        private readonly PokemonComponents _components;
 
         public PokemonUIManager(PokemonComponents components)
         {

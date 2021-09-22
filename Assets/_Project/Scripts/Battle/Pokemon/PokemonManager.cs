@@ -5,16 +5,13 @@ using UnityEngine;
 
 namespace Battle.Pokemon
 {
-
     public class PokemonManager : MonoBehaviour, IPokemonManager
     {
-        // IPokemon[] with data... health, slider, name, level, abilities (IAbility)...
         [SerializeField] private PokemonComponents components;
 
         public IPokemonAction Action { get; private set; }
         public IPokemonUIManager UI { get; private set; }
         public Player Player { get; private set; }
-
         public IPokemon ActivePokemon { get; private set; }
 
         public void Init(BattleSystem battleSystem, Player player)
@@ -51,12 +48,12 @@ namespace Battle.Pokemon
                 Action.Die();
                 return;
             }
-            
+
             UI.SetName(ActivePokemon.Name);
             components.Slider.maxValue = ActivePokemon.Health;
             components.Slider.value = ActivePokemon.Health;
             components.Health.text = $"{ActivePokemon.Health}/{ActivePokemon.Health}";
-            UI.SetLevel("" + ActivePokemon.Level);
+            UI.SetLevel(ActivePokemon.Level.ToString());
         }
 
         private void Update()

@@ -1,20 +1,17 @@
-using System;
-using System.Linq;
-using System.Text;
 using Core;
 
-namespace Battle.UI
+namespace Battle.Menu.UI
 {
     public class TextDots : IToggle
     {
         private readonly IRepeater _repeater;
-        private readonly IBattleUIManager _ui;
+        private readonly IMenuUIManager _ui;
         
         private string _startText;
         private string _dot;
         private StopRepeat _stopRepeat;
 
-        public TextDots(IRepeater repeater, IBattleUIManager uiManager)
+        public TextDots(IRepeater repeater, IMenuUIManager uiManager)
         {
             _repeater = repeater;
             _ui = uiManager;

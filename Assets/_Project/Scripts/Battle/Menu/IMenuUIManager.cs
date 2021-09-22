@@ -1,10 +1,9 @@
-using Battle.UI;
+using Battle.Menu.UI;
 using Core;
-using UnityEngine.UI;
 
-namespace Battle
+namespace Battle.Menu
 {
-    public interface IBattleUIManager
+    public interface IMenuUIManager
     {
         public string CurrentText { get; }
         IToggle AttackUI { get; }
